@@ -1,9 +1,9 @@
 from gpiozero import MotionSensor, LED 
-from signal import pause
+from time import sleep
 
-pir = MotionSensor(4) 
-
-pir.when_motion = led.on 
-pir.when_no_motion = led.off
-
-pause()
+pir = MotionSensor(16,threshold=0.01) 
+while True:
+    if (pir.motion_detected):
+        print("motion detected")
+        sleep(1)
+    sleep(.1)
